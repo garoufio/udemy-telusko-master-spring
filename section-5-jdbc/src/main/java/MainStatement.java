@@ -9,7 +9,8 @@ public class MainStatement {
     BasicTextEncryptor encryptor = new BasicTextEncryptor();
     encryptor.setPassword(System.getenv("JASYPT_ENCRYPTOR_PASSWORD"));
     
-    String url = System.getenv("DB_URL");
+    String dbName = System.getenv("DB_NAME");
+    String url = System.getenv("DB_URL") + dbName;
     String username = System.getenv("DB_USERNAME");
     String password = encryptor.decrypt(args[0]);
     
