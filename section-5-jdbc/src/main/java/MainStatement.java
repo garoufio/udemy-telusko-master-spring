@@ -1,12 +1,17 @@
 import java.sql.*;
 import java.time.LocalDateTime;
 
+import org.jasypt.util.text.BasicTextEncryptor;
+
 public class MainStatement {
   
   public static void main(String[] args) throws Exception {
-    String url = "jdbc:postgresql://localhost:5432/danvega";
-    String username = "postgres";
-    String password = "password";
+    BasicTextEncryptor encryptor = new BasicTextEncryptor();
+    encryptor.setPassword(System.getenv("JASYPT_ENCRYPTOR_PASSWORD"));
+    
+    String url = System.getenv("DB_URL");
+    String username = System.getenv("DB_USERNAME");
+    String password = encryptor.decrypt(args[0]);
     
     Class.forName("org.postgresql.Driver");
     Connection conn = DriverManager.getConnection(url, username, password);
