@@ -12,7 +12,7 @@ public class MainStatement {
     String dbName = System.getenv("DB_NAME");
     String url = System.getenv("DB_URL") + dbName;
     String username = System.getenv("DB_USERNAME");
-    String password = encryptor.decrypt(args[0]);
+    String password = encryptor.decrypt(System.getenv("ENC_PASSWORD"));
     
     Class.forName("org.postgresql.Driver");
     Connection conn = DriverManager.getConnection(url, username, password);
