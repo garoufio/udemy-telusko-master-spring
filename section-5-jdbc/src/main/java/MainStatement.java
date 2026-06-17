@@ -14,7 +14,7 @@ public class MainStatement {
     String username = System.getenv("DB_USERNAME");
     String password = encryptor.decrypt(System.getenv("ENC_PASSWORD"));
     
-    Class.forName("org.postgresql.Driver");
+//    Class.forName("org.postgresql.Driver");
     Connection conn = DriverManager.getConnection(url, username, password);
     System.out.println("Connected established");
     
