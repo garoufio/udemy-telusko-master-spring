@@ -11,7 +11,7 @@ public class MainPreparedStatement {
     SELECT id, title, description, status, content_type, url, date_created, date_updated FROM content_calendar.content
     """;
   public static final String GET_BY_ID = """
-      SELECT id, title, description, status, content_type, url date_created, date_updated FROM content_calendar.content
+      SELECT id, title, description, status, content_type, url, date_created, date_updated FROM content_calendar.content
       WHERE id = ?
       """;
   public static final String CREATE_CONTENT = """
